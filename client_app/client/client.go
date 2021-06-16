@@ -66,7 +66,7 @@ func DownloadFile(fileName string) {
 			if err != nil {
 				log.Fatalf("error while reciving chunk %v", err)
 			}
-			log.Printf("Response from GreetManyTimes: %v ", msg.ChunkData)
+			// log.Printf("Response from GreetManyTimes: %v ", msg.ChunkData)
 			chunk := msg.GetChunkData()
 			size := len(chunk)
 
