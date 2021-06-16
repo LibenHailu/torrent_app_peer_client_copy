@@ -26,6 +26,7 @@ func InitFileClient(srvAddr *string, svr *string) {
 }
 
 func connect(srvAddr *string) *grpc.ClientConn {
+
 	conn, err := grpc.Dial(*srvAddr, grpc.WithInsecure())
 
 	if err != nil {
@@ -66,7 +67,7 @@ func DownloadFile(fileName string) {
 			if err != nil {
 				log.Fatalf("error while reciving chunk %v", err)
 			}
-			// log.Printf("Response from GreetManyTimes: %v ", msg.ChunkData)
+			log.Printf("Response: %v ", msg.ChunkData)
 			chunk := msg.GetChunkData()
 			size := len(chunk)
 
@@ -83,7 +84,7 @@ func DownloadFile(fileName string) {
 
 		}
 
-		clientSave := client.NewDiskFileStore("C:/Users/Liben/go/src/github.com/LibenHailu/peer_to_peer_file_share/peer/file")
+		clientSave := client.NewDiskFileStore("C:/Users/Liben/go/src/github.com/LibenHailu/peer_to_peer_file_share/peer-copy/file")
 		clientSave.Save(fileData, fileName)
 
 	} else {
@@ -107,9 +108,10 @@ func DownloadFile(fileName string) {
 				break
 			}
 			if err != nil {
+				fmt.Println(err)
 				log.Fatalf("error while reciving chunk %v", err)
 			}
-			log.Printf("Response from GreetManyTimes: %v ", msg.ChunkData)
+			log.Printf("Response: %v ", msg.ChunkData)
 			chunk := msg.GetChunkData()
 			size := len(chunk)
 
@@ -126,7 +128,7 @@ func DownloadFile(fileName string) {
 
 		}
 
-		clientSave := client.NewDiskFileStore("C:/Users/Liben/go/src/github.com/LibenHailu/peer_to_peer_file_share/peer/file")
+		clientSave := client.NewDiskFileStore("C:/Users/Liben/go/src/github.com/LibenHailu/peer_to_peer_file_share/peer-copy/file")
 		clientSave.Save(fileData, fileName)
 
 	}

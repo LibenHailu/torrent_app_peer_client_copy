@@ -13,10 +13,6 @@ import (
 // 	serverAddr = flag.String("server_addr", "127.0.0.1:10000", "The server address in the format of host:port")
 // )
 
-func myServer() {
-
-}
-
 func main() {
 	flag.Parse()
 	fmt.Println("start the program")
@@ -39,7 +35,8 @@ func main() {
 		go func() {
 			// for {
 			serverAddr, server := filesource.SearchAddressForThefile("Liben.jpg")
-	
+			fmt.Println(*serverAddr)
+			fmt.Println(*server)
 			client.InitFileClient(serverAddr, server)
 			client.DownloadFile("Liben.jpg")
 			// }

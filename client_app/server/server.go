@@ -84,9 +84,9 @@ func InitFileServer() {
 	defer cc.Close()
 
 	c := mainpb.NewFileServiceClient(cc)
-	fmt.Println(*ip)
-	fmt.Println(int32(*port))
-	fmt.Println(list)
+	// fmt.Println(*ip)
+	// fmt.Println(int32(*port))
+	// fmt.Println(list)
 	mclient.RegisterPeers(c, *ip, int32(*port), list)
 
 	grpcServer.Serve(lis)
