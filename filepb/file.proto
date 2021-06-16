@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package peer;
+option go_package="./peer/filepb";
+
+message ServeFileResponse{
+    bytes chunk_data = 1;
+}
+
+message ServeFileRequest{
+    string file_name = 1;
+}
+
+service FileService{
+    rpc DownloadFile (ServeFileRequest) returns (stream ServeFileResponse){};
+}
