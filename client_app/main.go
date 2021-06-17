@@ -4,8 +4,6 @@ import (
 	"flag"
 	"fmt"
 
-	filesource "github.com/LibenHailu/grpc_file_stream/file_stream/file_source"
-	"github.com/LibenHailu/peer_to_peer_file_share/peer-copy/client_app/client"
 	"github.com/LibenHailu/peer_to_peer_file_share/peer-copy/client_app/server"
 )
 
@@ -32,15 +30,15 @@ func main() {
 		}()
 
 		// start the client thread
-		go func() {
-			// for {
-			serverAddr, server := filesource.SearchAddressForThefile("Liben.jpg")
-			fmt.Println(*serverAddr)
-			fmt.Println(*server)
-			client.InitFileClient(serverAddr, server)
-			client.DownloadFile("Liben.jpg")
-			// }
-		}()
+		// go func() {
+		// 	// for {
+		// 	serverAddr, server := filesource.SearchAddressForThefile("Liben.jpg")
+		// 	fmt.Println(*serverAddr)
+		// 	fmt.Println(*server)
+		// 	client.InitFileClient(serverAddr, server)
+		// 	client.DownloadFile("Liben.jpg")
+		// 	// }
+		// }()
 
 		// start the input thread
 		// go input()

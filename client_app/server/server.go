@@ -28,7 +28,7 @@ type file_server struct {
 
 func (*file_server) DownloadFile(req *pb.ServeFileRequest, res pb.FileService_DownloadFileServer) error {
 	bufferSize := 64 * 1024 //64KiB, tweak this as desired
-	file, err := os.Open("./file/" + req.GetFileName())
+	file, err := os.Open("../file/" + req.GetFileName())
 
 	if err != nil {
 		fmt.Println(err)
