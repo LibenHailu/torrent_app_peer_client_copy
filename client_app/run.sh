@@ -4,4 +4,4 @@ go  run main.go -port="10000" -server_addr="127.0.0.1:10001"
 
 go  run main.go -port="10001" 
 
-go  run main.go -port="10001" -ip="10.6.205.101"
+go  run main.go -port="10001" -ip="192.168.43.230"
